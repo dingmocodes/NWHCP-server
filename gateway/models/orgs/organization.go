@@ -20,6 +20,8 @@ type Organization struct {
 	Under18       bool     `bson:"Under18"`
 	CareerEmp     []string `bson:"CareerEmp"`
 	GradeLevels   []int    `bson:"GradeLevels"`
+	FinancialSupport []string `json:"financialSupport" bson:"FinancialSupport"`
+  ShadowOppt []string `json:"shadowOppt" bson:"ShadowOppt"`
 }
 
 // OrgInfo represents organization information for buiding searching criteria
@@ -31,4 +33,6 @@ type OrgInfo struct {
 	Under18       bool     `json: "Under18"`
 	CareerEmp     []string `json: "CareerEmp"`
 	GradeLevels   []int    `json: "GradeLevels"`
+	FinancialSupport []string `json:"financialSupport"`
+  ShadowOppt []string `json:"shadowOppt"`
 }

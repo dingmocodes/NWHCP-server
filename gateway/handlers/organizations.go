@@ -58,6 +58,8 @@ func (ctx *HandlerContext) InsertOrgs(w http.ResponseWriter, r *http.Request) {
 			dbOrg.Under18 = org.Under18
 			dbOrg.CareerEmp = org.CareerEmp
 			dbOrg.GradeLevels = org.GradeLevels
+			dbOrg.FinancialSupport = org.FinancialSupport
+			dbOrg.ShadowOppt = org.ShadowOppt
 			insertedOrg, err := ctx.OrgStore.Insert(dbOrg)
 			if err != nil {
 				http.Error(w, fmt.Sprintf("Error inserting new organization '%v' into the database: %v", org.OrgTitle, err),

@@ -25,6 +25,8 @@ const (
 	StreetAddr   = "StreetAddress"
 	City         = "City"
 	State        = "State"
+	FinancialSupport = "FinancialSupport"
+	ShadowOppt   = "ShadowOppt"
 )
 
 // OrgStore represents a mongoDB data store that implements the abstract store interface
@@ -204,6 +206,19 @@ func (os *OrgStore) SearchOrgs(orginfo *OrgInfo) ([]*Organization, error) {
 	if len(orginfo.GradeLevels) > 0 {
 		query = append(query, bson.M{
 			"GradeLevels": bson.M{"$all": orginfo.GradeLevels},
+		})
+	}
+	// For FinancialSupport
+	if len(orginfo.FinancialSupport) > 0 {
+		query = append(query, bson.M{
+				"FinancialSupport": bson.M{"$all": orginfo.FinancialSupport},
+		})
+	}
+
+	// For ShadowOppt
+	if len(orginfo.ShadowOppt) > 0 {
+		query = append(query, bson.M{
+				"ShadowOppt": bson.M{"$all": orginfo.ShadowOppt},
 		})
 	}
 
